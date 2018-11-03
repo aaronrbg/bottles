@@ -26,21 +26,13 @@
 //   return bottles;
 // }
 
-console.log(bottles(10));
-
-console.log(bottles(20));
-
-console.log(bottles(30));
-
-console.log(bottles(40));
-
-
-
 function bottles(input) {
   var bottlesDrank = 0;
+  console.log("You bought " + input + " new bottles")
   var newBottles = Math.trunc(input/2);
   //console.log(newBottles);
   var empties = newBottles;
+  console.log("Drank em and got " + input + " empties and " + input + " caps")
   //console.log(empties);
   var caps = newBottles;
   //console.log(caps);
@@ -48,7 +40,9 @@ function bottles(input) {
     bottlesDrank += newBottles;
     newBottles = 0;
     newBottles += Math.trunc(empties / 2);
+    console.log("exchanged empties for " + newBottles + "n ew bottles")
     newBottles += Math.trunc(caps / 4);
+    console.log("exchanged caps for " + newBottles + " new bottles")
     empties = empties % 2;
     caps = caps % 4;
     bottlesDrank += newBottles;
@@ -59,3 +53,6 @@ function bottles(input) {
   }
   return bottlesDrank;
 }
+
+console.log(bottles(process.argv[2]));
+
